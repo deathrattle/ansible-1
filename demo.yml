@@ -2,17 +2,4 @@
 - hosts: all
   tasks:
     - debug:
-        msg: echo "Sanchit"
-    - name: Create VM
-      azure_rm_virtualmachine:
-        resource_group: "{{resource_group}}"
-        name: "{{vm_name}}"
-        vm_size: "{{vm_size}}"
-        admin_username: "{{username}}"
-        admin_password: "{{password}}"
-        network_interfaces: "{{network_interfaces}}"
-        image:
-          offer: CentOS
-          publisher: OpenLogic
-          sku: '7.5'
-          version: latest
+        msg: "Sanchit"
