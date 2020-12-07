@@ -1,24 +1,5 @@
 ---
 - hosts: all
-  vars_prompt:
-    - name: "resource_group"
-      prompt: "Enter the resource group"
-      private: no
-    - name: "vm_name"
-      prompt: "Enter the name of vm"
-      private: no
-    - name: "vm_size"
-      prompt: "Enter the size of vm"
-      private: no
-    - name: "username"
-      prompt: "Enter the username"
-      private: no
-    - name: "password"
-      prompt: "Enter the password"
-      private: yes
-    - name: "network_interfaces"
-      prompt: "Enter the network_interface"
-      private: no
   tasks:
     - debug:
         msg: echo "Sanchit"
