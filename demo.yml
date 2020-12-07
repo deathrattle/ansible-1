@@ -1,9 +1,35 @@
 ---
 - hosts: all
+  vars_prompt:
+    - name: "resource_group"
+      prompt: "Enter the resource group"
+      private: no
+    - name: "vm_name"
+      prompt: "Enter the name of vm"
+      private: no
+    - name: "vm_size"
+      prompt: "Enter the size of vm"
+      private: no
+    - name: "username"
+      prompt: "Enter the username"
+      private: no
+    - name: "password"
+      prompt: "Enter the password"
+      private: yes
+    - name: "network_interfaces"
+      prompt: "Enter the network_interface"
+      private: no
   tasks:
-  - name: List the directories
-    shell: ls
-    register: output
-  - debug:
-      msg:
-      -  "{{output}}"
+    - name: Create VM
+      azure_rm_virtualmachine:
+        resource_group: "{{resource_group}}"
+        name: "{{vm_name}}"
+        vm_size: "{{vm_size}}"
+        admin_username: "{{username}}"
+        admin_password: "{{password}}"
+        network_interfaces: "{{network_interfaces}}"
+        image:
+          offer: CentOS
+          publisher: OpenLogic
+          sku: '7.5'
+          version: latest
