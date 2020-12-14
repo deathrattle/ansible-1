@@ -4,7 +4,7 @@
   - name: Create resource group
     azure_rm_resourcegroup:
       name: AzureResources-rg
-      location: eastus
+      location: centralindia
   - name: Create virtual network
     azure_rm_virtualnetwork:
       resource_group: AzureResources-rg
